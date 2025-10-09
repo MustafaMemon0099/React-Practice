@@ -1,41 +1,57 @@
-import React, { useState } from 'react'
-import Products from './Products';
-import Hello from './hello';
-import Skills from './Skills';
-
-
+import React from 'react'
+const userdata = [
+  {
+    name: 'Mustafa',
+    age : '15',
+    Email: "mustafa@App.com" ,
+    Id : "111"
+  },
+   {
+    name: 'Ali',
+    age : '20',
+    Email: "ali@App.com" ,
+    Id : "222"
+  },
+   {
+    name: 'anil',
+    age : '22',
+    Email: "anil@App.com" ,
+    Id : "333"
+  },
+   {
+    name: 'sam',
+    age : '19',
+    Email: "sam@App.com" ,
+    Id : "444"
+  },
+]
 function App() {
- const [gender , setgender] = useState("Male")
- const [city , setcity] = useState("")
   return (
     <div>
-      <input type='radio' name='gender' value = "Male" id='Male' onChange={(e)=>setgender(e.target.value)} chacked = {gender === "Male"}/>
-      <label htmlFor='Male'>Male</label>
-
-      <input type='radio' name='gender' value = "Female" id='Female' onChange={(e)=>setgender(e.target.value)} chacked = {gender === "Female"}/>
-       <label htmlFor='Female'>Female</label>
-
-       <input type='radio' name='gender' value = "prefer not to say" id='prefer not to say' onChange={(e)=>setgender(e.target.value)} chacked = {gender === "prefer not to say"}/>
-      <label htmlFor='prefer not to say'>prefer not to say</label>
-
-       <h2>{gender}</h2>
-       <hr></hr>
-       <select onChange={function(e){setcity (e.target.value)}} defaultValue={"Quetta"}>
-        <option value="Karachi">Karachi</option>
-        <option value="Lahore">Lahore</option>
-        <option value="Islamabad">Islamabad</option>
-        <option value="Quetta">Quetta</option>
-        <option value="Rawalpindi">Rawalpindi</option>
-       </select>
-       <h2>Selected city : {city}</h2>
-      <hr></hr>
-      <Products/>
-      <hr></hr>
-        <Hello/>
-        <br /><br /><hr />
-        <Skills></Skills>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>name</td>
+            <td>age</td>
+            <td>Email</td>
+            <td>Id</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            userdata.map((user)=>(
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+              <td>{user.Email}</td>
+              <td>{user.Id}</td>
+            </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
