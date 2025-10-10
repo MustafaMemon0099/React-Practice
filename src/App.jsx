@@ -1,4 +1,5 @@
 import React from 'react'
+import App from './clock'
 const userdata = [
   {
     name: 'Mustafa',
@@ -25,7 +26,7 @@ const userdata = [
     Id : "444"
   },
 ]
-function App() {
+function App1() {
   return (
     <div>
       <table border="1">
@@ -50,6 +51,7 @@ function App() {
           }
         </tbody>
       </table>
+      <App/>
     </div>
   )
 }
