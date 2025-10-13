@@ -1,59 +1,15 @@
-import React from 'react'
-import App from './clock'
-const userdata = [
-  {
-    name: 'Mustafa',
-    age : '15',
-    Email: "mustafa@App.com" ,
-    Id : "111"
-  },
-   {
-    name: 'Ali',
-    age : '20',
-    Email: "ali@App.com" ,
-    Id : "222"
-  },
-   {
-    name: 'anil',
-    age : '22',
-    Email: "anil@App.com" ,
-    Id : "333"
-  },
-   {
-    name: 'sam',
-    age : '19',
-    Email: "sam@App.com" ,
-    Id : "444"
-  },
-]
-function App1() {
+import React from 'react';
+import Card from './card';
+
+function App() {
   return (
     <div>
-      <table border="1">
-        <thead>
-          <tr>
-            <td>name</td>
-            <td>age</td>
-            <td>Email</td>
-            <td>Id</td>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            userdata.map((user)=>(
-            <tr>
-              <td>{user.name}</td>
-              <td>{user.age}</td>
-              <td>{user.Email}</td>
-              <td>{user.Id}</td>
-            </tr>
-            ))
-          }
-        </tbody>
-      </table>
-      <App/>
+      <Card  user= "Mustafa" img="https://vitalentum.net/upload/016/u1623/3/7/37d3dbc4.webp" /> 
+       <Card  user= "Haris" img="https://rapi.pixai.art/img/media/368234230324318272/orig" /> 
+        <Card  user= "Saad" img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlEnT2oFFj-OpPB852shOy0TDbEv0sErI4fWJMl9MwdqjRn3f-a0yRvMFyDAb7kQXiCUo&usqp=CAU" />
+      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
