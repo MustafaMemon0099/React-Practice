@@ -1,40 +1,123 @@
-
-
-.Card {
-  background-color: #222;
-  color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(47, 30, 40, 0.12);
-  padding: 28px 24px;
-  margin: 24px auto;
-  max-width: 400px;
-  transition: box-shadow 0.3s, transform 0.3s;
-  font-family: 'Segoe UI', Arial, sans-serif;
+/* Page background */
+body {
+  background-color: #1c1c1c;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.Card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #faf7fa;
+.App {
+   display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px;
+  padding: 32px;
+  align-items: flex-start;
 }
 
-.Card-content {
-  font-size: 1rem;
-  color: #ffffff;
-  line-height: 1.6;
+/* Job Card */
+.job-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  width: 350px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+    flex: 1 1 350px; 
+  max-width: 350px;
 }
 
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
 
-.Card-img {
-  width: 120px !important;
-  height: 120px !important;
-  object-fit: cover;
+/* Header */
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-logo img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  display: block;
-  margin: 0 auto 16px auto;
-  box-shadow: 0 2px 8px rgba(47, 30, 40, 0.12);
-  border: 4px solid #fff;
+  border: 2px solid #222;
 }
 
+.save-btn {
+  background: none;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid #222;
+  border-radius: 20px;
+}
 
+/* Info section */
+.job-info h3 {
+  margin: 16px 0 4px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.job-info h3 span {
+  color: #999;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+.job-info h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.tags {
+  margin-top: 12px;
+}
+
+.tags span {
+  background: #eee;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-right: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.job-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.price p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.apply-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.apply-btn:hover {
+  background: #333;
+}
