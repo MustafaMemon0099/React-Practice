@@ -34,7 +34,7 @@ body{
   justify-content:flex-start;
 }
 
-.inc, .dec {
+.inc, .dec , .res , .mul {
   appearance: none;
   border: 0;
   cursor: pointer;
@@ -54,13 +54,19 @@ body{
 .inc{
   background: linear-gradient(135deg, #2dd4bf 0%, var(--accent-green) 100%);
 }
+.res{
+  background: linear-gradient(135deg, #d42d70 0%, var(--accent-red) 100%);
+}
+.mul{
+  background: linear-gradient(135deg, #78d42d 0%, var(--accent-green) 100%);
+}
 .dec{
   background: linear-gradient(135deg, #fb7185 0%, var(--accent-red) 100%);
 }
 
-.inc:hover, .dec:hover{ transform: translateY(-4px); }
-.inc:active, .dec:active{ transform: translateY(-2px) scale(.995); }
-.inc:focus, .dec:focus{ outline: 3px solid rgba(255,255,255,0.04); box-shadow: 0 12px 30px rgba(2,6,23,0.6); }
+.inc:hover, .dec:hover , .res:hover , .mul:hover{ transform: translateY(-4px); }
+.inc:active, .dec:active , .res:active  , .mul:active{ transform: translateY(-2px) scale(.995); }
+.inc:focus, .dec:focus , .res:focus  , .mul:focus{ outline: 3px solid rgba(255,255,255,0.04); box-shadow: 0 12px 30px rgba(2,6,23,0.6); }
 
 h1, h2, .counter {
   margin: 0;
