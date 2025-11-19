@@ -1,35 +1,38 @@
+// ...existing code...
 import React from 'react'
-import './App.css'
 import { Routes, Route, Link } from 'react-router-dom'
-import Login from './Login.jsx'
-import About from './About.jsx';
-import Product from './Product.jsx';
-import Home from './Home.jsx';
+import Home from './Home'
+import Login from './Login'
+import About from './About'
+import Product from './Product'
+import men from './men'
+import Women from './Women'
+import './App.css';
 
 function App() {
   return (
     <div>
-      {/* 🧭 Navigation Bar */}
-      <nav>
-        <ul>
-          {/* "Home" button ka route galat tha — usay ab theek kar diya */}
-          <li><Link to="/Home">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>;
-           <li><Link to="/Product">Product</Link></li>;
-            <li><Link to="/About">About</Link></li>
-        </ul>
-      </nav>
+      
+      <nav> <ul>
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/product">Product</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul></nav>
 
-      {/* 📍 Routes */}
       <Routes>
-        {/* Route ka path lowercase me likhna best practice hai */}
-        <Route path="/login" element={<Login />} />;
-        <Route path="/About" element={<About />} />;
-        <Route path="/Product" element={<Product />} />;
-        <Route path="/Home" element={<Home />} />;
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/product" element={<Product />}>
+          <Route path="men" element={<men />} />
+          <Route path="women" element={<Women />} />
+        </Route>
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   )
 }
 
 export default App
+// ...existing code...
