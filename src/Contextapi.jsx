@@ -22,7 +22,7 @@ function Contextapi() {
           <option value="Geography">Geography</option>
           <option value="English">English</option>
           <option value="Computer Science">Computer Science</option>
-          <option value="Physical Education">Physical Education</option>
+          <option value="Physicss">Physical Education</option>
           <option value="Art">Art</option>
         </select> 
         <button onClick={function(){
