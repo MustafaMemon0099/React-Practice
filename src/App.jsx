@@ -1,11 +1,22 @@
 import React from 'react'
-import Contextapi from './Contextapi'
-import { Subjectcontext } from './Subject'
-
+import Home from './Home'
+import { Routes , Route} from 'react-router-dom'
+import Adduser from './Adduser'
+import { NavLink } from 'react-router-dom' 
 function App() {
   return (
     <div>
-      <Contextapi/>
+      
+        <div style={{ justifyContent:'space-between', display:'flex'}}>
+       <NavLink to="/adduser" >Add User</NavLink>
+        <NavLink to="/">Home</NavLink>  
+        </div>   
+     
+     
+      <Routes>
+        <Route path="/adduser" element={<Adduser/>}/>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
     </div>
   )
 }

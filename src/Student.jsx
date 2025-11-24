@@ -1,5 +1,5 @@
 import React from 'react'
-import Subject from './Subject'
+import Subject from './Adduser'
 
 function Student() {
   return (
