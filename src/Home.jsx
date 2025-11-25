@@ -1,34 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 
 function Home() {
 
-  const [userdata, setUserdata] = useState([]); // API ka data store hoga
+  const [users, setUsers] = useState([]);
 
+  // GET USERS FROM API
   const getuserdata = async () => {
-    let data = await fetch("http://localhost:3000/user")
-    data = await data.json()
-    setUserdata(data); // yahan state me save ho raha
-  }
+    let data = await fetch("http://localhost:3000/user");
+    data = await data.json();
+    setUsers(data);
+  };
+
+  // AUTO LOAD ON PAGE OPEN
+  useEffect(() => {
+    getuserdata();
+  }, []);
+
+  // DELETE USER FROM API
+  const deleteUser = async (id) => {
+    console.log("Deleting:", id);
+
+    let res = await fetch(`http://localhost:3000/user/${id}`, {
+      method: "DELETE"
+    });
+
+    if (res.ok) {
+      // Screen se bhi remove
+      setUsers(users.filter((user) => user.id !== id));
+    } else {
+      console.log("Delete failed, status:", res.status);
+    }
+  };
 
   return (
     <>
-      <h1>hello</h1>
+      <h1>Home Page</h1>
 
-      <button onClick={getuserdata}>get data</button>
+      <button onClick={getuserdata}>Reload Users</button>
 
       <h2>API Data:</h2>
 
-      {userdata.map((item) => (
+      {users.map((item) => (
         <div key={item.id}>
           <p>ID: {item.id}</p>
-          <p>Name: {item.name}</p>
+          <p>Name: {item.name || item.naam}</p>
           <p>Email: {item.email}</p>
+          
+          <button onClick={() => deleteUser(item.id)}>Delete</button>
           <hr />
         </div>
       ))}
-   
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
