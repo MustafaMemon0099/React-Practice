@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
-
+  const navigate = useNavigate()
   const [users, setUsers] = useState([]);
 
   // GET USERS FROM API
@@ -31,7 +32,9 @@ function Home() {
       console.log("Delete failed, status:", res.status);
     }
   };
-
+    const editUser = async (id) => {
+      navigate(`/edit/${id}`);
+    };
   return (
     <>
       <h1>Home Page</h1>
@@ -47,6 +50,7 @@ function Home() {
           <p>Email: {item.email}</p>
           
           <button onClick={() => deleteUser(item.id)}>Delete</button>
+           <button onClick={() => editUser(item.id)}>Edit</button>
           <hr />
         </div>
       ))}
