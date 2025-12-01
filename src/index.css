@@ -1,4 +1,9 @@
 /* Reset and box-sizing */
+body, html {
+  background-color: #1a1b1c;
+  color: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -132,7 +137,7 @@ html, body {
 /* CART COUNT - avoid global h1/p collision by scoping if needed */
 h1, p {
   text-align: center;
-  color: #2c3e50;
+  color: #dcc9f8;
 }
 
 /* RESPONSIVE */
