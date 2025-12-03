@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
        <h1>Color Mixer</h1>
-       <div style={{backgroundColor : 'rgb('+r+' ,'+g+' , '+b+' ) ', height : 300 , width : 300 , marginLeft: 620}}></div>
+       <div style={{backgroundColor : 'rgb('+r+' ,'+g+' , '+b+' ) ', height : 400 , width : 400 , marginLeft: 620 }}></div>
        <h3>Red</h3>
        <input type="range" min ="0" max="255" onChange={ (e) =>setR(e.target.value)} value={r}/>
        <h3>Green</h3> 
