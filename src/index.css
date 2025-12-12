@@ -180,3 +180,19 @@ h1, p {
     min-width: 100px;
   }
 }
+
+
+.character-img {
+  width: 100%;           /* card ke width ke andar fit ho jaye */
+  height: 300px;         /* jo height chahiye card ke liye */
+  object-fit: contain;    /* poora image height me fit ho jaye, stretch nahi */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
