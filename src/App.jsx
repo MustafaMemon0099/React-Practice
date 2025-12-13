@@ -1,36 +1,48 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-import './index.css'
-
-
+import React from 'react'; 
+import { useQuery, QueryClient} from '@tanstack/react-query'; 
+import axios from 'axios'; 
+import './index.css';
+const queryClient = new QueryClient(); 
 function App() {
-  const [products, setProducts] = useState([]);
-  const fetchdata = async () =>{
-    const response = await axios.get('https://dragonball-api.com/api/characters');
-    setProducts(response.data.items);
+
+  const fetchProducts = async () => {
+    const res = await axios.get(`https://fakestoreapi.com/products`); 
+    return res.data; 
   }
- 
 
+  const { data, isLoading, isError, refetch } = useQuery({
+    queryKey: ['products'], 
+    queryFn: fetchProducts,  
+    enabled: false,         
+  });
 
+  if (isLoading) return <h1>Loading...</h1>; 
+  if (isError) return <h1>Error occurred</h1>; 
+
+  const updateProduct = async (productId, updatedData) => {
+    const res = await axios.put(`https://fakestoreapi.com/products/${productId}`, updatedData);
+    return res.data;
+  }
+  
   return (
     <div>
-      <button onClick={fetchdata}>Fetch Products</button>
+      <button onClick={refetch}>Fetch Products</button>
      
-       {products.map(Data => (
-  <div key={Data.id}>
-    <h2>{Data.name}</h2>
-    <p>{Data.gender}</p>
 
-    <div>
-       <img className="character-img" src={Data.image} alt={Data.name} />
-    </div>
-  </div>
-))}
-        
-    
-        
+      {data && data.map(product => (
+     
+        <div key={product.id}>
+          <h2>{product.title}</h2>
+          <p>{product.description}</p>
+          <p>Price: ${product.price}</p>
+     <img src={product.image} alt={product.title} />
+
+        </div>
+      ))}
     </div>
   )
 }
 
 export default App
+
+  
